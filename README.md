@@ -1,1 +1,2 @@
-# bc26-project2
+# bootcamp-proyecto1
+Proyecto 1
