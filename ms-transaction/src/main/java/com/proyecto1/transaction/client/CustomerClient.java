@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class CustomerClient {
 
-    private WebClient client = WebClient.create("http://localhost:9002/customer");
+    private WebClient client = WebClient.create("http://customer-service:9002/customer");
     private final ReactiveCircuitBreakerFactory reactiveCircuitBreakerFactory;
 
     public Mono<Customer> getCustomer(String id){

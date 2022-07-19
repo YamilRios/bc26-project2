@@ -1,0 +1,22 @@
+server:
+  port: 9009
+security:
+  basic:
+    enable: false
+management:
+  security:
+    enabled: false
+spring:
+  cloud:
+    config:
+      enabled: true
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: bdproyecto1
+eureka:
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://service-eureka-server:8761/eureka/
