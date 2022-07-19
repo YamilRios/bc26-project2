@@ -27,15 +27,13 @@ public class PurchaseController {
     @GetMapping("/find/{id}")
     public Mono<Purchase> getPurchase(@PathVariable String id){
         log.info("Service call FindById - purchase");
-        Mono<Purchase> newDeposit = purchaseService.findById(id);
-        return newDeposit;
+        return purchaseService.findById(id);
     }
 
     @PostMapping("/create")
     public Mono<Purchase> createPurchase(@RequestBody Purchase c){
         log.info("Service call Create - purchase");
-        Mono<Purchase> newDeposit = purchaseService.create(c);
-        return newDeposit;
+        return purchaseService.create(c);
     }
 
     @PutMapping("/update/{id}")

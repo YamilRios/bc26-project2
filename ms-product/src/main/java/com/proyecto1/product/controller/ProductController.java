@@ -27,15 +27,13 @@ public class ProductController {
     @GetMapping("/find/{id}")
     public Mono<Product> getCustomer(@PathVariable String id){
         log.info("Service call FindById - product");
-        Mono<Product> newCustomer = productService.findById(id);
-        return newCustomer;
+        return productService.findById(id);
     }
 
     @PostMapping("/create")
     public Mono<Product> createCustomer(@RequestBody Product p){
         log.info("Service call create - product");
-        Mono<Product> newCustomer = productService.create(p);
-        return newCustomer;
+        return productService.create(p);
     }
 
     @PutMapping("/update/{id}")
