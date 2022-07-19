@@ -27,15 +27,13 @@ public class SignatoryController {
     @GetMapping("/find/{id}")
     public Mono<Signatory> getSignatory(@PathVariable String id){
         log.info("Service call FindById - signatory");
-        Mono<Signatory> newDeposit = signatoryService.findById(id);
-        return newDeposit;
+        return signatoryService.findById(id);
     }
 
     @PostMapping("/create")
     public Mono<Signatory> createSignatory(@RequestBody Signatory c){
         log.info("Service call Create - signatory");
-        Mono<Signatory> newDeposit = signatoryService.create(c);
-        return newDeposit;
+        return signatoryService.create(c);
     }
 
     @PutMapping("/update/{id}")

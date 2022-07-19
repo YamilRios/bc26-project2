@@ -28,15 +28,13 @@ public class DepositController {
     @GetMapping("/find/{id}")
     public Mono<Deposit> getDeposit(@PathVariable String id){
         log.info("Service call findById - deposit");
-        Mono<Deposit> newDeposit = depositService.findById(id);
-        return newDeposit;
+        return depositService.findById(id);
     }
 
     @PostMapping("/create")
     public Mono<Deposit> createDeposit(@RequestBody Deposit c){
         log.info("Service call create - deposit");
-        Mono<Deposit> newDeposit = depositService.create(c);
-        return newDeposit;
+        return depositService.create(c);
     }
 
     @PutMapping("/update/{id}")
