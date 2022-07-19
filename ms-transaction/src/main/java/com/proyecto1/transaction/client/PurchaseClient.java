@@ -8,7 +8,7 @@ import reactor.core.publisher.Flux;
 
 @Component
 public class PurchaseClient {
-    private WebClient client = WebClient.create("http://localhost:9007/purchase");
+    private WebClient client = WebClient.create("http://purchase-service:9007/purchase");
 
     public Flux<Purchase> getPurchase(){
         return client.get()
