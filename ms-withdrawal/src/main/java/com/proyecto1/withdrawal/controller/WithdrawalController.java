@@ -27,15 +27,13 @@ public class WithdrawalController {
     @GetMapping("/find/{id}")
     public Mono<Withdrawal> getWithdrawal(@PathVariable String id){
         log.info("Service call FindById - withdrawal");
-        Mono<Withdrawal> newDeposit = withdrawalService.findById(id);
-        return newDeposit;
+        return withdrawalService.findById(id);
     }
 
     @PostMapping("/create")
     public Mono<Withdrawal> createWithdrawal(@RequestBody Withdrawal c){
         log.info("Service call Create - withdrawal");
-        Mono<Withdrawal> newDeposit = withdrawalService.create(c);
-        return newDeposit;
+        return withdrawalService.create(c);
     }
 
     @PutMapping("/update/{id}")
