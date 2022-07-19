@@ -11,32 +11,32 @@ spring:
           predicates:
             - Path=/customer/**
         - id: product-service
-            uri: lb://product-service
-            predicates:
+          uri: lb://product-service
+          predicates:
               - Path=/product/**
         - id: transaction-service
-            uri: lb://transaction-service
-            predicates:
+          uri: lb://transaction-service
+          predicates:
               - Path=/transaction/**
         - id: deposit-service
-            uri: lb://deposit-service
-            predicates:
+          uri: lb://deposit-service
+          predicates:
               - Path=/deposit/**
         - id: payment-service
-            uri: lb://payment-service
-            predicates:
+          uri: lb://payment-service
+          predicates:
               - Path=/payment/**
         - id: purchase-service
-            uri: lb://purchase-service
-            predicates:
+          uri: lb://purchase-service
+          predicates:
               - Path=/purchase/**
         - id: signatory-service
-            uri: lb://signatory-service
-            predicates:
+          uri: lb://signatory-service
+          predicates:
               - Path=/signatory/**
         - id: withdrawal-service
-            uri: lb://withdrawal-service
-            predicates:
+          uri: lb://withdrawal-service
+          predicates:
               - Path=/withdrawal-service/**
 eureka:
   client:
