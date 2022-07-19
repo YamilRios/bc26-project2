@@ -1,0 +1,45 @@
+server:
+  port: 9011
+spring:
+  cloud:
+    config:
+      enabled: true
+    gateway:
+      routes:
+        - id: customer-service
+          uri: lb://customer-service
+          predicates:
+            - Path=/customer/**
+        - id: product-service
+            uri: lb://product-service
+            predicates:
+              - Path=/product/**
+        - id: transaction-service
+            uri: lb://transaction-service
+            predicates:
+              - Path=/transaction/**
+        - id: deposit-service
+            uri: lb://deposit-service
+            predicates:
+              - Path=/deposit/**
+        - id: payment-service
+            uri: lb://payment-service
+            predicates:
+              - Path=/payment/**
+        - id: purchase-service
+            uri: lb://purchase-service
+            predicates:
+              - Path=/purchase/**
+        - id: signatory-service
+            uri: lb://signatory-service
+            predicates:
+              - Path=/signatory/**
+        - id: withdrawal-service
+            uri: lb://withdrawal-service
+            predicates:
+              - Path=/withdrawal-service/**
+eureka:
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://service-eureka-server:8761/eureka/

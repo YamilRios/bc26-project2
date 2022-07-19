@@ -1,0 +1,15 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: customer-service
+  config:
+    import: optional:configserver:http://ms-config-service:9001
+  cloud:
+    config:
+      enabled: true
+eureka:
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://service-eureka-server:8761/eureka

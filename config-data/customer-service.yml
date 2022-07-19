@@ -1,0 +1,13 @@
+
+security:
+  basic:
+    enable: false
+management:
+  security:
+    enabled: false
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: bdproyecto1
