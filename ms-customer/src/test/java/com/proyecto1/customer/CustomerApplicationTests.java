@@ -32,9 +32,6 @@ class CustomerApplicationTests {
 	private WebTestClient webTestClient;
 
 	@MockBean
-	private CustomerRepository customerRepository;
-
-	@MockBean
 	private CustomerService customerService;
 
 
