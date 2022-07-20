@@ -17,6 +17,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.BodyInserters;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.math.BigDecimal;
@@ -85,6 +86,19 @@ public class DepositControllerTest {
 
     @Test
     public void findAll() {
+        DepositDTO depositMono = DepositDTO.builder()
+                .id(ObjectId.get().toString())
+                .date(LocalDate.now())
+                .depositAmount(BigDecimal.valueOf(200))
+                .description("demo 1")
+                .transactionId("234234jnjk2344")
+                .build();
+
+        Deposit deposit = new Deposit();
+        BeanUtils.copyProperties(depositMono,deposit);
+
+        Mockito.when(depositService.findAll()).thenReturn(Flux.just(deposit));
+
         webTestClient.get()
                 .uri("/deposit/findAll")
                 .accept(MediaType.APPLICATION_JSON)
