@@ -12,7 +12,7 @@ spring:
       enabled: true
   data:
     mongodb:
-      uri: mongodb://db_mongo:27017/bdproyecto1
+      uri: mongodb://db-mongo:27017/bdproyecto1
       #host: localhost
       #port: 27017
       #database: bdproyecto1
