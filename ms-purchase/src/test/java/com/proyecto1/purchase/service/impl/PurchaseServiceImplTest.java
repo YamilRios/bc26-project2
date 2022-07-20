@@ -34,7 +34,7 @@ public class PurchaseServiceImplTest {
     private PurchaseServiceImpl purchaseServiceImpl;
 
     @Test
-    public void createDepositTest() {
+     void createDepositTest() {
         Purchase purchaseMono = Purchase.builder()
                 .id(ObjectId.get().toString())
                 .date(LocalDate.now())
@@ -74,7 +74,7 @@ public class PurchaseServiceImplTest {
     }
 
     @Test
-    public void updateDepositTest() {
+     void updateDepositTest() {
         Purchase purchaseMono = Purchase.builder()
                 .id(ObjectId.get().toString())
                 .date(LocalDate.now())
@@ -94,7 +94,7 @@ public class PurchaseServiceImplTest {
     }
 
     @Test
-    public void findAll() {
+     void findAll() {
         Purchase purchaseMono = Purchase.builder()
                 .id(ObjectId.get().toString())
                 .date(LocalDate.now())
@@ -112,7 +112,7 @@ public class PurchaseServiceImplTest {
     }
 
     @Test
-    public void FindById() {
+     void FindById() {
 
         Purchase purchaseMono = Purchase.builder()
                 .id("2346723847262")
@@ -131,7 +131,7 @@ public class PurchaseServiceImplTest {
     }
 
     @Test
-    public void Delete() {
+     void Delete() {
 
         Purchase purchaseMono = Purchase.builder()
                 .id(ObjectId.get().toString())

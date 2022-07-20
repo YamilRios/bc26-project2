@@ -31,7 +31,7 @@ public class SignatoryControllerTest {
     private SignatoryService signatoryService;
 
     @Test
-    public void createDepositTest() {
+     void createDepositTest() {
         Signatory signatoryMono = Signatory.builder()
                 .id(ObjectId.get().toString())
                 .name("yasmin")
@@ -50,7 +50,7 @@ public class SignatoryControllerTest {
     }
 
     @Test
-    public void updateDepositTest() {
+     void updateDepositTest() {
         Signatory signatoryMono = Signatory.builder()
                 .id(ObjectId.get().toString())
                 .name("yasmin")
@@ -72,7 +72,7 @@ public class SignatoryControllerTest {
     }
 
     @Test
-    public void findAll() {
+     void findAll() {
 
         Signatory signatoryMono = Signatory.builder()
                 .id(ObjectId.get().toString())
@@ -97,7 +97,7 @@ public class SignatoryControllerTest {
     }
 
     @Test
-    public void FindById() {
+     void FindById() {
 
         Signatory signatory = new Signatory();
         signatory.setId("12buhvg24uhjknv2");
@@ -125,7 +125,7 @@ public class SignatoryControllerTest {
     }
 
     @Test
-    public void Delete() {
+     void Delete() {
 
         Signatory signatoryMono = Signatory.builder()
                 .id(ObjectId.get().toString())

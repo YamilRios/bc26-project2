@@ -35,7 +35,7 @@ public class WithDrawalControllerTest {
     private WithdrawalService withdrawalService;
 
     @Test
-    public void createWithDrawalTest() {
+     void createWithDrawalTest() {
         Withdrawal withdrawalMono = Withdrawal.builder()
                 .id(ObjectId.get().toString())
                 .date(LocalDate.now())
@@ -54,7 +54,7 @@ public class WithDrawalControllerTest {
     }
 
     @Test
-    public void updateWithDrawalTest() {
+     void updateWithDrawalTest() {
         Withdrawal withdrawalMono = Withdrawal.builder()
                 .id(ObjectId.get().toString())
                 .date(LocalDate.now())
@@ -76,7 +76,7 @@ public class WithDrawalControllerTest {
     }
 
     @Test
-    public void findAll() {
+     void findAll() {
 
         Withdrawal withdrawalMono = Withdrawal.builder()
                 .id(ObjectId.get().toString())
@@ -100,7 +100,7 @@ public class WithDrawalControllerTest {
     }
 
     @Test
-    public void FindById() {
+     void FindById() {
 
         Withdrawal signatory = new Withdrawal();
         signatory.setId("12buhvg24uhjknv2");
@@ -128,7 +128,7 @@ public class WithDrawalControllerTest {
     }
 
     @Test
-    public void Delete() {
+     void Delete() {
 
         Withdrawal withdrawalMono = Withdrawal.builder()
                 .id(ObjectId.get().toString())
