@@ -1,0 +1,14 @@
+version: "1.0"
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: db-mongo
+    ports:
+    - 27017:27017
+    networks:
+    - msbasic
+networks:
+  msbasic:
+    name: bootcamp-project2
+

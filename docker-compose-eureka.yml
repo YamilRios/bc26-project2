@@ -1,0 +1,15 @@
+version: "1.0"
+
+services:
+  service-eureka-server:
+    image: service-eureka-server:1.0.0
+    container_name: service-eureka-server
+    restart: always
+    ports:
+    - 8761:8761
+    networks:
+      - msbasic
+networks:
+  msbasic:
+    name: bootcamp-project2
+
