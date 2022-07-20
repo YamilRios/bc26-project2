@@ -42,7 +42,7 @@ public class SignatoryServiceImplTest {
     private SignatoryServiceImpl signatoryServiceImpl;
 
     @Test
-    public void createDepositTest() {
+     void createDepositTest() {
         Signatory signatoryMono = Signatory.builder()
                 .id(ObjectId.get().toString())
                 .name("yasmin")
@@ -93,7 +93,7 @@ public class SignatoryServiceImplTest {
 
 
     @Test
-    public void updateDepositTest() {
+     void updateDepositTest() {
         Signatory signatoryMono = Signatory.builder()
                 .id(ObjectId.get().toString())
                 .name("yasmin")
@@ -114,7 +114,7 @@ public class SignatoryServiceImplTest {
     }
 
     @Test
-    public void findAll() {
+     void findAll() {
 
         Signatory signatoryMono = Signatory.builder()
                 .id(ObjectId.get().toString())
@@ -134,7 +134,7 @@ public class SignatoryServiceImplTest {
 
 
     @Test
-    public void FindById() {
+     void FindById() {
 
         Signatory signatoryMono = Signatory.builder()
                 .id("2346723847262")
@@ -153,7 +153,7 @@ public class SignatoryServiceImplTest {
     }
 
     @Test
-    public void Delete() {
+     void Delete() {
 
         Signatory signatoryMono = Signatory.builder()
                 .id(ObjectId.get().toString())

@@ -36,7 +36,7 @@ public class WithDrawalServiceImplTest {
 
 
     @Test
-    public void createDepositTest() {
+     void createDepositTest() {
         Withdrawal withdrawalMono = Withdrawal.builder()
                 .id(ObjectId.get().toString())
                 .date(LocalDate.now())
@@ -75,7 +75,7 @@ public class WithDrawalServiceImplTest {
                 }));
     }
     @Test
-    public void updateDepositTest() {
+     void updateDepositTest() {
         Withdrawal withdrawalMono = Withdrawal.builder()
                 .id(ObjectId.get().toString())
                 .date(LocalDate.now())
@@ -95,7 +95,7 @@ public class WithDrawalServiceImplTest {
     }
 
     @Test
-    public void findAll() {
+     void findAll() {
         Withdrawal withdrawalMono = Withdrawal.builder()
                 .id(ObjectId.get().toString())
                 .date(LocalDate.now())
@@ -113,7 +113,7 @@ public class WithDrawalServiceImplTest {
     }
 
     @Test
-    public void FindById() {
+     void FindById() {
 
         Withdrawal withdrawalMono = Withdrawal.builder()
                 .id("2346723847262")
@@ -132,7 +132,7 @@ public class WithDrawalServiceImplTest {
     }
 
     @Test
-    public void Delete() {
+     void Delete() {
 
         Withdrawal withdrawalMono = Withdrawal.builder()
                 .id(ObjectId.get().toString())

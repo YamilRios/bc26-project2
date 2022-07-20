@@ -34,7 +34,7 @@ public class PaymentServiceImplTest {
     private PaymentServiceImpl paymentServiceImpl;
 
     @Test
-    public void createDepositTest() {
+     void createDepositTest() {
         Payment paymentMono = Payment.builder()
                 .id(ObjectId.get().toString())
                 .date(LocalDate.now())
@@ -74,7 +74,7 @@ public class PaymentServiceImplTest {
     }
 
     @Test
-    public void updateDepositTest() {
+     void updateDepositTest() {
         Payment paymentMono = Payment.builder()
                 .id(ObjectId.get().toString())
                 .date(LocalDate.now())
@@ -95,7 +95,7 @@ public class PaymentServiceImplTest {
     }
 
     @Test
-    public void findAll() {
+     void findAll() {
         Payment paymentMono = Payment.builder()
                 .id(ObjectId.get().toString())
                 .date(LocalDate.now())
@@ -113,7 +113,7 @@ public class PaymentServiceImplTest {
     }
 
     @Test
-    public void FindById() {
+    void FindById() {
 
         Payment payment = new Payment();
         payment.setId("12buhvg24uhjknv2");
@@ -131,7 +131,7 @@ public class PaymentServiceImplTest {
     }
 
     @Test
-    public void Delete() {
+     void Delete() {
 
         Payment paymentMono = Payment.builder()
                 .id(ObjectId.get().toString())

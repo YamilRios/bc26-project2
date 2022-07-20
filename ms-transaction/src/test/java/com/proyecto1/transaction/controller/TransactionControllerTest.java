@@ -38,7 +38,7 @@ public class TransactionControllerTest {
     private TransactionService transactionService;
 
     @Test
-    public void findAll() {
+     void findAll() {
 
         Transaction transactionMono = Transaction.builder()
                 .id(ObjectId.get().toString())
@@ -70,7 +70,7 @@ public class TransactionControllerTest {
     }
 
     @Test
-    public void FindById() {
+     void FindById() {
 
         Transaction transaction = new Transaction();
         transaction.setId("12buhvg24uhjknv2");
@@ -113,7 +113,7 @@ public class TransactionControllerTest {
     }
 
     @Test
-    public void Delete() {
+     void Delete() {
 
         Transaction transactionMono = Transaction.builder()
                 .id(ObjectId.get().toString())
@@ -149,7 +149,7 @@ public class TransactionControllerTest {
     }
 
     @Test
-    public void updateTransactionTest() {
+     void updateTransactionTest() {
         Transaction transactionMono = Transaction.builder()
                 .id(ObjectId.get().toString())
                 .customerId("23424242345fdd")
@@ -178,7 +178,7 @@ public class TransactionControllerTest {
     }
 
     @Test
-    public void findAllWithDetail() {
+     void findAllWithDetail() {
 
         Transaction transactionMono = Transaction.builder()
                 .id(ObjectId.get().toString())
@@ -210,7 +210,7 @@ public class TransactionControllerTest {
     }
 
     @Test
-    public void findByIdWithCustomer() {
+     void findByIdWithCustomer() {
 
         Transaction transaction = new Transaction();
         transaction.setId("12buhvg24uhjknv2");
@@ -254,7 +254,7 @@ public class TransactionControllerTest {
     }
 
     @Test
-    public void createWithDrawalTest() {
+     void createWithDrawalTest() {
         Transaction transactionMono = Transaction.builder()
                 .id(ObjectId.get().toString())
                 .customerId("23424242345fdd")

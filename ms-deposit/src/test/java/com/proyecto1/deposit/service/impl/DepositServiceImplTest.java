@@ -39,7 +39,7 @@ public class DepositServiceImplTest {
     private DepositServiceImpl depositServiceImpl;
 
     @Test
-    public void createDepositTest() {
+     void createDepositTest() {
         DepositDTO depositMono = DepositDTO.builder()
                 .id(ObjectId.get().toString())
                 .date(LocalDate.now())
@@ -82,7 +82,7 @@ public class DepositServiceImplTest {
     }
 
     @Test
-    public void updateDepositTest() {
+     void updateDepositTest() {
         DepositDTO depositMono = DepositDTO.builder()
                 .id(ObjectId.get().toString())
                 .date(LocalDate.now())
@@ -105,7 +105,7 @@ public class DepositServiceImplTest {
     }
 
     @Test
-    public void findAll() {
+     void findAll() {
         Deposit depositMono = Deposit.builder()
                 .id(ObjectId.get().toString())
                 .date(LocalDate.now())
@@ -123,7 +123,7 @@ public class DepositServiceImplTest {
     }
 
     @Test
-    public void FindById() {
+     void FindById() {
 
         Deposit deposit = new Deposit();
         deposit.setId("12buhvg24uhjknv2");
@@ -141,7 +141,7 @@ public class DepositServiceImplTest {
     }
 
     @Test
-    public void Delete() {
+     void Delete() {
 
         Deposit depositMono = Deposit.builder()
                 .id(ObjectId.get().toString())

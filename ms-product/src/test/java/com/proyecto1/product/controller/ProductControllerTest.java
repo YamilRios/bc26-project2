@@ -32,7 +32,7 @@ public class ProductControllerTest {
     ProductService productService;
 
     @Test
-    public void createDepositTest() {
+     void createDepositTest() {
         Product productMono = Product.builder()
                 .id(ObjectId.get().toString())
                 .indProduct(1)
@@ -53,7 +53,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    public void updateDepositTest() {
+     void updateDepositTest() {
         Product productMono = Product.builder()
                 .id(ObjectId.get().toString())
                 .indProduct(1)
@@ -75,7 +75,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    public void findAll() {
+     void findAll() {
         Product productMono = Product.builder()
                 .id(ObjectId.get().toString())
                 .indProduct(1)
@@ -98,7 +98,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    public void FindById() {
+     void FindById() {
 
         Product product = new Product();
         product.setId("12buhvg24uhjknv2");
@@ -126,7 +126,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    public void Delete() {
+     void Delete() {
 
         Product productMono = Product.builder()
                 .id(ObjectId.get().toString())
