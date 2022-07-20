@@ -117,7 +117,7 @@ public class PurchaseControllerTest {
                 .expectBody()
                 .jsonPath("$.id").isNotEmpty()
                 .jsonPath("$.id").isEqualTo("12buhvg24uhjknv2")
-                .jsonPath("$.date").isEqualTo("2022-07-19")
+                .jsonPath("$.date").isEqualTo("2022-07-20")
                 .jsonPath("$.purchaseAmount").isEqualTo(BigDecimal.valueOf(100))
                 .jsonPath("$.description").isEqualTo("demo purchase")
                 .jsonPath("$.transactionId").isEqualTo("678676898wdfs");

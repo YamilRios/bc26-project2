@@ -165,40 +165,6 @@ public class TransacionServiceImpl implements TransactionService {
                         });
             }));
     }
-    
-    public Mono<Boolean> limitsAndCommissionValidation(Transaction t) {
-    	// Ahorro 10 movimientos maximo mensuales
-    	// Cuenta corriente sin limite movimientos
-    	
-    	return product.getProduct(t.getProductId()).flatMap(product -> {
-    			// Ahorro 1
-    			if(product.getTypeProduct() == 1) {
-    				BigDecimal i = new BigDecimal(0.0);
-    				if(t.getMovementLimit() <= 10 && t.getMaintenanceCommission().equals(i)) {
-    					return Mono.just(true);
-    				} else {
-    					log.warn("Limit 10 monthly movements without commission");
-    					return Mono.just(false);
-    				}
-    			}
-    			// Cuenta Corriente 2
-    			if(product.getTypeProduct() == 2) {
-    				return Mono.just(true);
-    			}
-    			// Plazo Fijo 3
-    			if(product.getTypeProduct() == 3) {
-    				if(t.getMovementLimit() <= 1 && t.getMaintenanceCommission().equals(new BigDecimal(0))) {
-    					return Mono.just(true);
-    				} else {
-    					log.warn("Limit 1 monthly movement without commission");
-    					return Mono.just(false);
-    				}
-    			}
-    			log.warn("Product type not found");
-    			return Mono.just(false);
-    		});
-    }
-    
 
 	@Override
 	public Flux<Transaction> findAllWithDetail() {
