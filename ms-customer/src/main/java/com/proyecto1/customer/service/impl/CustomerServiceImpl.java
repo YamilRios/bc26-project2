@@ -1,10 +1,12 @@
 package com.proyecto1.customer.service.impl;
 
+import com.proyecto1.customer.dto.CustomerDTO;
 import com.proyecto1.customer.entity.Customer;
 import com.proyecto1.customer.repository.CustomerRepository;
 import com.proyecto1.customer.service.CustomerService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -24,9 +26,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Mono<Customer> create(Customer c) {
+    public Mono<Customer> create(CustomerDTO c) {
         log.info("Method call Create - customer");
-        return customerRepository.save(c);
+       Customer customer = new Customer();
+        BeanUtils.copyProperties(c,customer);
+        return customerRepository.save(customer);
     }
 
     @Override
@@ -36,8 +40,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Mono<Customer> update(Customer c, String id) {
+    public Mono<Customer> update(CustomerDTO c, String id) {
         log.info("Method call Update - customer");
+        Customer customer = new Customer();
+        BeanUtils.copyProperties(c,customer);
+
         return customerRepository.findById(id)
                 .map( x -> {
                     x.setName(c.getName());
@@ -52,6 +59,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Mono<Customer> delete(String id) {
         log.info("Method call Delete - customer");
-        return customerRepository.findById(id).flatMap( x -> customerRepository.delete(x).then(Mono.just(new Customer())));
+        return customerRepository.findById(id).flatMap(
+                x -> customerRepository.delete(x).then(Mono.just(new Customer())));
     }
 }

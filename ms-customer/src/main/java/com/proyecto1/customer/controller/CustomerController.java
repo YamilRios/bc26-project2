@@ -1,8 +1,8 @@
 package com.proyecto1.customer.controller;
 
+import com.proyecto1.customer.dto.CustomerDTO;
 import com.proyecto1.customer.entity.Customer;
 import com.proyecto1.customer.service.CustomerService;
-import com.proyecto1.customer.service.impl.CustomerServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,13 +31,13 @@ public class CustomerController {
     }
 
     @PostMapping("/create")
-    public Mono<Customer> createCustomer(@RequestBody Customer c){
+    public Mono<Customer> createCustomer(@RequestBody CustomerDTO c){
         log.info("Service call create - customer");
         return customerService.create(c);
     }
 
     @PutMapping("/update/{id}")
-    public Mono<Customer> updateCustomer(@RequestBody Customer c, @PathVariable String id){
+    public Mono<Customer> updateCustomer(@RequestBody CustomerDTO c, @PathVariable String id){
         log.info("Service call update - customer");
         return customerService.update(c,id);
     }

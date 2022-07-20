@@ -114,6 +114,7 @@ public class TransacionServiceImpl implements TransactionService {
                     x.setAvailableBalance(t.getAvailableBalance());
                     x.setMaintenanceCommission(t.getMaintenanceCommission());
                     x.setCardNumber(t.getCardNumber());
+                    x.setRetirementDateFixedTerm(t.getRetirementDateFixedTerm());
                     return x;
                 }).flatMap(transactionRepository::save);
     }

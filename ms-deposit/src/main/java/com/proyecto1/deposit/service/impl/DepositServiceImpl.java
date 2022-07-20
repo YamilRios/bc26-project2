@@ -1,12 +1,14 @@
 package com.proyecto1.deposit.service.impl;
 
 import com.proyecto1.deposit.client.TransactionClient;
+import com.proyecto1.deposit.dto.DepositDTO;
 import com.proyecto1.deposit.entity.Deposit;
 import com.proyecto1.deposit.repository.DepositRepository;
 import com.proyecto1.deposit.service.DepositService;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -29,15 +31,16 @@ public class DepositServiceImpl implements DepositService {
     }
 
     @Override
-    public Mono<Deposit> create(Deposit c) {
+    public Mono<Deposit> create(DepositDTO c) {
         log.info("Method call create - deposit");
-
+        Deposit deposit = new Deposit();
+        BeanUtils.copyProperties(c,deposit);
         return transactionClient.getTransactionWithDetails(c.getTransactionId())
                 .filter( x -> x.getProduct().getIndProduct() == 2)
                 .hasElement()
                 .flatMap( y -> {
                     if(y){
-                        return depositRepository.save(c);
+                        return depositRepository.save(deposit);
                     }else{
                         return Mono.error(new RuntimeException("The account entered is not a bank account"));
                     }
@@ -51,8 +54,10 @@ public class DepositServiceImpl implements DepositService {
     }
 
     @Override
-    public Mono<Deposit> update(Deposit c, String id) {
+    public Mono<Deposit> update(DepositDTO c, String id) {
         log.info("Method call update - deposit");
+        Deposit deposit = new Deposit();
+        BeanUtils.copyProperties(c,deposit);
         return depositRepository.findById(id)
                 .map( x -> {
                     x.setDate(c.getDate());
