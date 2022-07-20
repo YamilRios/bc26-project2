@@ -1,5 +1,6 @@
 package com.proyecto1.deposit.controller;
 
+import com.proyecto1.deposit.dto.DepositDTO;
 import com.proyecto1.deposit.entity.Deposit;
 import com.proyecto1.deposit.service.DepositService;
 
@@ -32,13 +33,13 @@ public class DepositController {
     }
 
     @PostMapping("/create")
-    public Mono<Deposit> createDeposit(@RequestBody Deposit c){
+    public Mono<Deposit> createDeposit(@RequestBody DepositDTO c){
         log.info("Service call create - deposit");
         return depositService.create(c);
     }
 
     @PutMapping("/update/{id}")
-    public Mono<Deposit> updateDeposit(@RequestBody Deposit c, @PathVariable String id){
+    public Mono<Deposit> updateDeposit(@RequestBody DepositDTO c, @PathVariable String id){
         log.info("Service call update - deposit");
         return depositService.update(c,id);
     }

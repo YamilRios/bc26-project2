@@ -34,4 +34,7 @@ public class Transaction {
     
     @Transient
     private Product product;
+
+
+
 }

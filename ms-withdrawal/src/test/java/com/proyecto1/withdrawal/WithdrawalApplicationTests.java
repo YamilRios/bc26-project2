@@ -36,7 +36,7 @@ class WithdrawalApplicationTests {
 	private WithdrawalService withdrawalService;
 
 	@Test
-	public void createDepositTest() {
+	public void createWithDrawalTest() {
 		Withdrawal withdrawalMono = Withdrawal.builder()
 				.id(ObjectId.get().toString())
 				.date(LocalDate.now())
@@ -55,7 +55,7 @@ class WithdrawalApplicationTests {
 	}
 
 	@Test
-	public void updateDepositTest() {
+	public void updateWithDrawalTest() {
 		Withdrawal withdrawalMono = Withdrawal.builder()
 				.id(ObjectId.get().toString())
 				.date(LocalDate.now())

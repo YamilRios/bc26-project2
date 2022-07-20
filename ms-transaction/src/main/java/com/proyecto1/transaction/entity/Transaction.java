@@ -2,7 +2,10 @@ package com.proyecto1.transaction.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import reactor.core.publisher.Mono;
 
 import org.springframework.data.annotation.Id;
@@ -17,6 +20,9 @@ import java.util.List;
 @Document(collection = "schema_account.transaction")
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Transaction {
     @Id
     private String id;

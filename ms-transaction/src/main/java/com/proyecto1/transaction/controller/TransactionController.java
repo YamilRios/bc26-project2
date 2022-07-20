@@ -32,20 +32,17 @@ public class TransactionController {
     @GetMapping("/find/{id}")
     public Mono<Transaction> getTransaction(@PathVariable String id){
         log.info("Service call FindById - transaction");
-        Mono<Transaction> newTransaction = transactionService.findById(id);
-        return newTransaction;
+        return transactionService.findById(id);
     }
     @GetMapping("/findByIdWithCustomer/{id}")
     public Mono<Transaction> getTransactionWithCustomer(@PathVariable String id){
         log.info("Service call findWithCustomer - transaction");
-        Mono<Transaction> newTransaction = transactionService.findByIdWithCustomer(id);
-        return newTransaction;
+        return transactionService.findByIdWithCustomer(id);
     }
     @PostMapping("/create")
     public Mono<Transaction> createTransaction(@RequestBody Transaction t){
         log.info("Service call Create - transaction");
-        Mono<Transaction> newTransaction = transactionService.save(t);
-        return newTransaction;
+        return transactionService.save(t);
     }
 
     @PutMapping("/update/{id}")
