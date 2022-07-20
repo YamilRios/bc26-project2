@@ -12,9 +12,10 @@ spring:
       enabled: true
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: bdproyecto1
+      uri: mongodb://db_mongo:27017/bdproyecto1
+      #host: localhost
+      #port: 27017
+      #database: bdproyecto1
 eureka:
   client:
     enabled: true

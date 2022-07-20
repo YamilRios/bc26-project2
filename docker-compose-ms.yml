@@ -1,0 +1,95 @@
+version: "1.0"
+
+services:
+  config-service:
+    image: config-service:1.0.0
+    container_name: config-service
+    restart: always
+    ports:
+    - 9001:9001
+    networks:
+      - msbasic
+  service-eureka-server:
+    image: service-eureka-server:1.0.0
+    container_name: service-eureka-server
+    restart: always
+    ports:
+    - 8761:8761
+    networks:
+      - msbasic
+  customer-service:
+    image: customer-service:1.0.0
+    container_name: customer-service
+    restart: always
+    ports:
+    - 9002:9002
+    networks:
+      - msbasic
+  product-service:
+    image: product-service:1.0.0
+    container_name: product-service
+    restart: always
+    ports:
+    - 9003:9003
+    networks:
+      - msbasic
+  transaction-service:
+    image: transaction-service:1.0.0
+    container_name: transaction-service
+    restart: always
+    ports:
+    - 9004:9004
+    networks:
+      - msbasic
+  deposit-service:
+    image: deposit-service:1.0.0
+    container_name: deposit-service
+    restart: always
+    ports:
+    - 9005:9005
+    networks:
+      - msbasic
+  withdrawal-service:
+    image: withdrawal-service:1.0.0
+    container_name: withdrawal-service
+    restart: always
+    ports:
+    - 9009:9009
+    networks:
+      - msbasic
+  payment-service:
+    image: payment-service:1.0.0
+    container_name: payment-service
+    restart: always
+    ports:
+    - 9006:9006
+    networks:
+      - msbasic
+  signatory-service:
+    image: signatory-service:1.0.0
+    container_name: signatory-service
+    restart: always
+    ports:
+    - 9008:9008
+    networks:
+      - msbasic
+  purchase-service:
+    image: purchase-service:1.0.0
+    container_name: purchase-service
+    restart: always
+    ports:
+    - 9007:9007
+    networks:
+      - msbasic
+  gateway-service:
+    image: gateway-service:1.0.0
+    container_name: gateway-service
+    restart: always
+    ports:
+    - 9011:9011
+    networks:
+      - msbasic
+networks:
+  msbasic:
+    name: bootcamp-project2
+
