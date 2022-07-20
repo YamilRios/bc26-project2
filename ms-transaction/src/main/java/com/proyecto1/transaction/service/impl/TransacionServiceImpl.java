@@ -129,43 +129,41 @@ public class TransacionServiceImpl implements TransactionService {
     public Mono<Transaction> findByIdWithCustomer(String id) {
         log.info("Method call FindByIdWithCustomer - transaction");
         return transactionRepository.findById(id)
-                .flatMap( trans -> {
-                    return customerClient.getCustomer(trans.getCustomerId())
-                            .flatMap( customer -> {
-                                return product.getProduct(trans.getProductId())
-                                        .flatMap( product -> {
-                                        	return depositClient.getDeposit()
-                                                    .filter(x -> x.getTransactionId().equals(trans.getId()))
-                                                    .collectList()
-                                                    .flatMap((deposit -> {
-                                                        return withDrawalClient.getWithDrawal()
-                                                               .filter(i -> i.getTransactionId().equals(trans.getId()))
-                                                               .collectList()
-                                                               .flatMap(( withdrawals -> {
-                                                                   return paymentClient.getPayment()
-                                                                           .filter(z -> z.getTransactionId().equals(trans.getId()))
-                                                                           .collectList()
-                                                                           .flatMap((payments -> {
-                                                                   return purchaseClient.getPurchase()
-                                                                           .filter(y -> y.getTransactionId().equals(trans.getId()))
-                                                                           .collectList()
-                                                                           .flatMap(purchases -> {
+                .flatMap( trans -> customerClient.getCustomer(trans.getCustomerId())
+                        .flatMap( customer -> {
+                            return product.getProduct(trans.getProductId())
+                                    .flatMap( product -> {
+                                        return depositClient.getDeposit()
+                                                .filter(x -> x.getTransactionId().equals(trans.getId()))
+                                                .collectList()
+                                                .flatMap((deposit -> {
+                                                    return withDrawalClient.getWithDrawal()
+                                                           .filter(i -> i.getTransactionId().equals(trans.getId()))
+                                                           .collectList()
+                                                           .flatMap(( withdrawals -> {
+                                                               return paymentClient.getPayment()
+                                                                       .filter(z -> z.getTransactionId().equals(trans.getId()))
+                                                                       .collectList()
+                                                                       .flatMap((payments -> {
+                                                               return purchaseClient.getPurchase()
+                                                                       .filter(y -> y.getTransactionId().equals(trans.getId()))
+                                                                       .collectList()
+                                                                       .flatMap(purchases -> {
 
-                                                                               return signatoryClient.getSignatory()
-                                                                                       .filter(o -> o.getTransactionId().equals(trans.getId()))
-                                                                                       .collectList()
-                                                                                       .flatMap(signatories -> {
-                                                                                           ValorAllValidator(trans, customer, product, deposit, withdrawals, payments, purchases, signatories);
-                                                                                           return Mono.just(trans);
-                                                                                       });
-                                                                           });
+                                                                           return signatoryClient.getSignatory()
+                                                                                   .filter(o -> o.getTransactionId().equals(trans.getId()))
+                                                                                   .collectList()
+                                                                                   .flatMap(signatories -> {
+                                                                                       ValorAllValidator(trans, customer, product, deposit, withdrawals, payments, purchases, signatories);
+                                                                                       return Mono.just(trans);
+                                                                                   });
+                                                                       });
 
-                                                                           } ));
-                                                       } ));
-                                        }));
-                            });
-                });
-    });
+                                                                       } ));
+                                                   } ));
+                                    }));
+                        });
+            }));
     }
     
     public Mono<Boolean> limitsAndCommissionValidation(Transaction t) {
@@ -205,42 +203,38 @@ public class TransacionServiceImpl implements TransactionService {
 	@Override
 	public Flux<Transaction> findAllWithDetail() {
         return transactionRepository.findAll()
-                .flatMap( trans -> {
-                    return customerClient.getCustomer(trans.getCustomerId())
-                            .flatMapMany( customer -> {
-                                return product.getProduct(trans.getProductId())
-                                        .flatMapMany( product -> {
-                                            return depositClient.getDeposit()
-                                                    .filter(x -> x.getTransactionId().equals(trans.getId()))
-                                                    .collectList()
-                                                    .flatMapMany((deposit -> {
-                                                        return withDrawalClient.getWithDrawal()
-                                                                .filter(i -> i.getTransactionId().equals(trans.getId()))
-                                                                .collectList()
-                                                                .flatMapMany(( withdrawals -> {
-                                                                    return paymentClient.getPayment()
-                                                                            .filter(z -> z.getTransactionId().equals(trans.getId()))
-                                                                            .collectList()
-                                                                            .flatMapMany((payments -> {
-                                                                                return purchaseClient.getPurchase()
-                                                                                        .filter(y -> y.getTransactionId().equals(trans.getId()))
-                                                                                        .collectList()
-                                                                                        .flatMapMany(purchases -> {
-                                                                                            return signatoryClient.getSignatory()
-                                                                                                    .filter(o -> o.getTransactionId().equals(trans.getId()))
-                                                                                                    .collectList()
-                                                                                                    .flatMapMany(signatories -> {
-                                                                                                        ValorAllValidator(trans, customer, product, deposit, withdrawals, payments, purchases, signatories);
-                                                                                                        return Flux.just(trans);
-                                                                                                    });
-                                                                                        });
+                .flatMap( trans -> customerClient.getCustomer(trans.getCustomerId())
+                        .flatMapMany( customer -> {
+                            return product.getProduct(trans.getProductId())
+                                    .flatMapMany( product -> depositClient.getDeposit()
+                                            .filter(x -> x.getTransactionId().equals(trans.getId()))
+                                            .collectList()
+                                            .flatMapMany((deposit -> {
+                                                return withDrawalClient.getWithDrawal()
+                                                        .filter(i -> i.getTransactionId().equals(trans.getId()))
+                                                        .collectList()
+                                                        .flatMapMany(( withdrawals -> {
+                                                            return paymentClient.getPayment()
+                                                                    .filter(z -> z.getTransactionId().equals(trans.getId()))
+                                                                    .collectList()
+                                                                    .flatMapMany((payments -> {
+                                                                        return purchaseClient.getPurchase()
+                                                                                .filter(y -> y.getTransactionId().equals(trans.getId()))
+                                                                                .collectList()
+                                                                                .flatMapMany(purchases -> {
+                                                                                    return signatoryClient.getSignatory()
+                                                                                            .filter(o -> o.getTransactionId().equals(trans.getId()))
+                                                                                            .collectList()
+                                                                                            .flatMapMany(signatories -> {
+                                                                                                ValorAllValidator(trans, customer, product, deposit, withdrawals, payments, purchases, signatories);
+                                                                                                return Flux.just(trans);
+                                                                                            });
+                                                                                });
 
-                                                                            } ));
-                                                                } ));
-                                                    }));
-                                        });
-                            });
-                });
+                                                                    } ));
+                                                        } ));
+                                            })));
+                        }));
 
 	}
 
