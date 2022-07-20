@@ -1,0 +1,15 @@
+version: "1.0"
+
+services:
+  config-service:
+    image: config-service:1.0.0
+    container_name: config-service
+    restart: always
+    ports:
+    - 9001:9001
+    networks:
+      - msbasic
+networks:
+  msbasic:
+    name: bootcamp-project2
+
