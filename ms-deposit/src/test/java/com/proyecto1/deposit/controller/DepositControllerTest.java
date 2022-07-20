@@ -129,7 +129,7 @@ public class DepositControllerTest {
                 .expectBody()
                 .jsonPath("$.date").isNotEmpty()
                 .jsonPath("$.id").isEqualTo("12buhvg24uhjknv2")
-                .jsonPath("$.date").isEqualTo("2022-07-19")
+                .jsonPath("$.date").isEqualTo("2022-07-20")
                 .jsonPath("$.depositAmount").isEqualTo(BigDecimal.valueOf(200))
                 .jsonPath("$.description").isEqualTo("demo2")
                 .jsonPath("$.transactionId").isEqualTo("2323423424");

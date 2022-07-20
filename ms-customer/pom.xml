@@ -87,6 +87,46 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.8.0.2131</version>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.5</version>
+				<configuration>
+					<excludes>
+						<exclude>*/com/proyecto1/customer/controller/*</exclude>
+						<exclude>*/com/proyecto1/customer/entity/*</exclude>
+						<exclude>*/com/proyecto1/customer/repository/*</exclude>
+						<exclude>**/com/proyecto1/customer/service/CustomerService.class</exclude>
+						<exclude>src/main/java/com/proyecto1/customer/controller/CustomerController.java</exclude>
+						<exclude>src/test/java/com/proyecto1/customer/controller/CustomerControllerTest.java</exclude>
+						<exclude>src/test/java/com/proyecto1/customer/CustomerApplicationTests.java</exclude>
+						<exclude>src/main/java/com/proyecto1/customer/dto/CustomerDTO.java</exclude>
+						<exclude>src/test/java/com/proyecto1/customer/service/impl/CustomerServiceImplTest.java</exclude>
+						<exclude>pom.xml</exclude>
+						<exclude>src/main/java/com/proyecto1/customer/service/impl/CustomerServiceImpl.java</exclude>
+						<exclude>src/main/java/com/proyecto1/customer/service/CustomerService.java</exclude>
+					</excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
