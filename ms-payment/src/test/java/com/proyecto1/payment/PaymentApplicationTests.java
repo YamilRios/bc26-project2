@@ -11,6 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
@@ -24,7 +25,7 @@ import java.time.LocalDate;
 
 import static org.mockito.Mockito.times;
 
-
+@SpringBootTest
 class PaymentApplicationTests {
 	@Test
 	void contextLoads() {
