@@ -10,5 +10,3 @@ spring:
           uri: https://github.com/YamilRios/bc26-project2.git
           search-paths: config-data
           default-label: ${GIT_BRANCH}
-          username: ${GIT_USER}
-          password: ${GIT_PSWD}
