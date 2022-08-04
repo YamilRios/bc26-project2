@@ -4,9 +4,9 @@
 name: Build and deploy JAR app to Azure Web App - config-service-ms-yamil
 
 on:
-  push:
-    branches:
-      - master
+  # push:
+    # branches:
+      # - master
   workflow_dispatch:
 
 jobs:
@@ -27,8 +27,8 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          name: config-service
+          path: '${{ github.workspace }}/config-service/target/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
@@ -41,7 +41,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: java-app
+          name: config-service
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
